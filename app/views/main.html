@@ -1,0 +1,50 @@
+<form class="form-horizontal">
+  <div class="col-md-12">
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="amount">Type in amount:</label>
+      <div class="col-md-6">
+        <input novalidate ng-model="amount" id="amount" class="form-control" type="number">
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="from">Select your currency:</label>
+      <div class="col-md-6">
+        <select id="from" class="form-control" ng-model="selectedOwnCurrency">
+          <option ng-repeat="x in currencies" value="{{x}}">{{x}}</option>
+        </select>
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label class="col-md-4 control-label" for="to">Select foreign currency:</label>
+      <div class="col-md-6">
+        <select id="to" class="form-control" ng-model="selectedForeignCurrency">
+          <option ng-repeat="x in currencies" value="{{x}}">{{x}}</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <div class="col-md-offset-4 col-md-6">
+        <button ng-click="calculate(selectedOwnCurrency,selectedForeignCurrency)" type="submit" class="btn btn-default">
+          Calculate
+        </button>
+      </div>
+    </div>
+  </div>
+</form>
+
+<row>
+  <div class="col-md-6 col-md-offset-4">
+    <p> Your amount after exchange: {{exchangedAmount | currency:selectedForeignCurrency}}</p>
+  </div>
+</row>
+
+<row>
+  <div class="col-md-6 col-md-offset-4">
+  <p style="color:#777">Every exchange rate is actualized everyday about 4PM</p>
+  </div>
+</row>
