@@ -26,7 +26,11 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl',
         controllerAs: 'about'
-      })
+      }).when('/bmi',{
+      templateUrl:'views/bmi.html',
+      controller:'BmiCtrl',
+      controllerAs:'bmi'
+    })
       .otherwise({
         redirectTo: '/'
       });
